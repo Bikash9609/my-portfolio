@@ -32,3 +32,22 @@ code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
 }
+
+.errorMessage {
+	display: none;
+}
+
+@media (max-width: 1024px) {
+	.errorMessage {
+		display: block;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+
+		background: rgb(255, 0, 0);
+		color: #fff;
+		padding: 20px 10px;
+		width: 100%;
+		margin-bottom: 10px;
+	}
+}
