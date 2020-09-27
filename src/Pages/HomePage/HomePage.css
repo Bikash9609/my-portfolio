@@ -421,7 +421,7 @@ section {
 
 .talkButton:hover {
 	background: linear-gradient(#ffffff33, rgba(204, 204, 204, 0.6)) !important;
-	animation: smileNow 0.25s linear;
+	animation: smileNow 1s linear;
 	-webkit-animation: smileNow 1s linear;
 }
 
