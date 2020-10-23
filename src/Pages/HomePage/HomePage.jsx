@@ -8,6 +8,8 @@ import {
 	Paper,
 	Typography,
 } from "@material-ui/core";
+import Skeleton from "react-loading-skeleton";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 import { GoLocation } from "react-icons/go";
 import { VscMailRead } from "react-icons/vsc";
 import { BiArrowBack } from "react-icons/bi";
@@ -20,6 +22,9 @@ import Work4 from "../../assets/Images/Work/React-App-Mobile.png";
 import Work5 from "../../assets/Images/Work/React-App.png";
 import Work6 from "../../assets/Images/Work/Sign-In.png";
 import Work7 from "../../assets/Images/Work/Title.png";
+
+import Spinner from "../../components/Spinner/Spinner";
+import LazyLoadImage from "../../components/ImageLoazyLoader/ImageLazyLoad";
 
 import "./HomePage.css";
 
@@ -63,7 +68,12 @@ const ViewImageModal = ({ pic }) => {
 				</>
 			</Modal>
 			<Paper className="workPaper" onClick={modalShowHandler}>
-				<img src={imgSrc} alt="Work_Image" />
+				<LazyLoadImage
+					src={imgSrc}
+					alt="Work_Image"
+					height="100%"
+					width="100%"
+				/>
 			</Paper>
 		</>
 	);
@@ -187,11 +197,16 @@ function HomePage() {
 					<Grid item xs={8}>
 						<header className="Header">
 							<div className="Header__PortPic">
-								<Avatar
-									src={require("../../assets/Images/UserPic/PinkShirt.png")}
-									alt="Bikash Tiwari"
-									className="Header__PortPic_UserPic"
-								/>
+								<LazyLoadComponent
+									placeholder={<Spinner />}
+									style={{ margin: "0 auto", width: "max-content" }}
+								>
+									<Avatar
+										src={require("../../assets/Images/UserPic/PinkShirt.png")}
+										alt="Bikash Tiwari"
+										className="Header__PortPic_UserPic"
+									/>
+								</LazyLoadComponent>
 							</div>
 
 							<div className="Header__PortPic_Bio">
@@ -224,27 +239,29 @@ function HomePage() {
 					justify="flex-start"
 					alignItems="center"
 				>
-					<Grid item xs={3}>
-						<ViewImageModal pic={Work2} />
-					</Grid>
-					<Grid item xs={3}>
-						<ViewImageModal pic={Work3} />
-					</Grid>
-					<Grid item xs={3}>
-						<ViewImageModal pic={Work4} />
-					</Grid>
-					<Grid item xs={3}>
-						<ViewImageModal pic={Work5} />
-					</Grid>
-					<Grid item xs={3}>
-						<ViewImageModal pic={Work7} />
-					</Grid>
-					<Grid item xs={3}>
-						<ViewImageModal pic={Work1} />
-					</Grid>
-					<Grid item xs={3}>
-						<ViewImageModal pic={Work6} />
-					</Grid>
+					<LazyLoadComponent>
+						<Grid item xs={3}>
+							<ViewImageModal pic={Work2} />
+						</Grid>
+						<Grid item xs={3}>
+							<ViewImageModal pic={Work3} />
+						</Grid>
+						<Grid item xs={3}>
+							<ViewImageModal pic={Work4} />
+						</Grid>
+						<Grid item xs={3}>
+							<ViewImageModal pic={Work5} />
+						</Grid>
+						<Grid item xs={3}>
+							<ViewImageModal pic={Work7} />
+						</Grid>
+						<Grid item xs={3}>
+							<ViewImageModal pic={Work1} />
+						</Grid>
+						<Grid item xs={3}>
+							<ViewImageModal pic={Work6} />
+						</Grid>
+					</LazyLoadComponent>
 				</Grid>
 			</main>
 
