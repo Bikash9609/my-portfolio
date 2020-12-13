@@ -12,11 +12,13 @@ body {
 	-moz-osx-font-smoothing: grayscale;
 	background: rgb(238, 238, 238, 0.1);
 	height: 100%;
+
 	scroll-behavior: smooth;
 }
 
-p {
-	font-family: "Open Sans", sans-serif;
+p,
+label {
+	font-family: "Open Sans", sans-serif !important;
 }
 
 h1,
@@ -50,4 +52,11 @@ code {
 		width: 100%;
 		margin-bottom: 10px;
 	}
+}
+
+.MuiInputBase-root:invalid {
+	color: orange !important;
+}
+.MuiFormLabel-root {
+	font-size: 1rem;
 }
